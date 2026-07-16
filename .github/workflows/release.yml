@@ -48,7 +48,10 @@ jobs:
           set -euo pipefail
 
           rm -f "$ARTIFACT_NAME"
-          ditto -c -k --sequesterRsrc --keepParent "$PRODUCT_PATH" "$ARTIFACT_NAME"
+          (
+            cd "$BUILD_DIR"
+            /usr/bin/zip -r -y "$GITHUB_WORKSPACE/$ARTIFACT_NAME" Shuttle.app
+          )
 
       - name: Verify packaged app
         run: |
@@ -58,15 +61,15 @@ jobs:
           unzip -t "$ARTIFACT_NAME"
           unzip -l "$ARTIFACT_NAME" | sed -n '1,40p'
 
-          ZIP_VERIFY_DIR="$(mktemp -d)"
-          ditto -x -k "$ARTIFACT_NAME" "$ZIP_VERIFY_DIR"
-          test -d "$ZIP_VERIFY_DIR/Shuttle.app"
-          test -x "$ZIP_VERIFY_DIR/Shuttle.app/Contents/MacOS/Shuttle"
+          VERIFY_DIR="$(mktemp -d)"
+          unzip -q "$ARTIFACT_NAME" -d "$VERIFY_DIR"
+          test -d "$VERIFY_DIR/Shuttle.app"
+          test -x "$VERIFY_DIR/Shuttle.app/Contents/MacOS/Shuttle"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v6
         with:
-          name: Shuttle-package
+          name: Shuttle
           path: ${{ env.ARTIFACT_NAME }}
           if-no-files-found: error
 
