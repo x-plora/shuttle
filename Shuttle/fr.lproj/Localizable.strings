@@ -5,6 +5,18 @@
 */
 
 "About " = "A propos de ";
-"Version: " = "Version: ";
+"Version: " = "Version : ";
 " - A simple SSH shortcut menu." = " - Le gestionnaire de raccourcis SSH.";
 "Error parsing config" = "Fichier de paramétrage invalide";
+
+"Quit" = "Quitter";
+"Continue" = "Continuer";
+
+"is not a valid value for inTerminal. Please fix this in the JSON file" = "n’est pas une valeur valide pour inTerminal. Corrigez cela dans le fichier JSON";
+"bad \"inTerminal\":\"VALUE\" in the JSON settings" = "valeur \"inTerminal\":\"VALUE\" incorrecte dans les réglages JSON";
+
+"\"iTerm_version\": \"VALUE\", is missing.\n\n\"VALUE\" can be:\n\"stable\" targeting new versions.\n\"nightly\" targeting nightly builds.\n\nPlease fix your shuttle JSON settings.\nSee readme.md on shuttle's github for help." = "\"iTerm_version\": \"VALUE\" est manquant.\n\n\"VALUE\" peut être :\n\"stable\" pour les nouvelles versions.\n\"nightly\" pour les builds nightly.\n\nCorrigez les réglages JSON de Shuttle.\nConsultez readme.md sur le GitHub de Shuttle pour obtenir de l’aide.";
+"Press Continue to try iTerm stable applescripts.\n              -->(not recommended)<--\nThis could fail if you have another version of iTerm installed.\n\nPlease fix the JSON settings.\nPress Quit to exit shuttle." = "Appuyez sur Continuer pour essayer les AppleScript d’iTerm stable.\n              -->(non recommandé)<--\nCela pourrait échouer si une autre version d’iTerm est installée.\n\nCorrigez les réglages JSON.\nAppuyez sur Quitter pour quitter Shuttle.";
+
+"is not a valid value for iTerm_version. Please fix this in the JSON file" = "n’est pas une valeur valide pour iTerm_version. Corrigez cela dans le fichier JSON";
+"bad \"iTerm_version\": \"VALUE\" in the JSON settings" = "valeur \"iTerm_version\": \"VALUE\" incorrecte dans les réglages JSON";

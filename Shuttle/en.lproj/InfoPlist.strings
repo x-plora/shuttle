@@ -1,2 +1,3 @@
 /* Localized versions of Info.plist keys */
 
+"NSAppleEventsUsageDescription" = "Shuttle needs Automation privileges in Security & Privacy to run AppleScript.";

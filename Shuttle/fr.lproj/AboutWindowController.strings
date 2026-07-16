@@ -3,13 +3,13 @@
 "6fl-Xm-UPS.title" = "Version";
 
 /* Class = "NSTextFieldCell"; title = "Copyright"; ObjectID = "Cmu-CQ-3V9"; */
-"Cmu-CQ-3V9.title" = "Copyright";
+"Cmu-CQ-3V9.title" = "Droits d’auteur";
 
 /* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
-"F0z-JX-Cv5.title" = "Window";
+"F0z-JX-Cv5.title" = "À propos de Shuttle";
 
 /* Class = "NSTextFieldCell"; title = "Program Name and Tag Line"; ObjectID = "tb3-eK-HAT"; */
-"tb3-eK-HAT.title" = "Program Name and Tag Line";
+"tb3-eK-HAT.title" = "Nom du programme et slogan";
 
 /* Class = "NSButtonCell"; title = "Homepage"; ObjectID = "uUM-88-32s"; */
-"uUM-88-32s.title" = "Page d'accueil";
+"uUM-88-32s.title" = "Page d’accueil";

@@ -1,15 +1,15 @@
 
 /* Class = "NSTextFieldCell"; title = "Version"; ObjectID = "6fl-Xm-UPS"; */
-"6fl-Xm-UPS.title" = "Version";
+"6fl-Xm-UPS.title" = "版本";
 
 /* Class = "NSTextFieldCell"; title = "Copyright"; ObjectID = "Cmu-CQ-3V9"; */
-"Cmu-CQ-3V9.title" = "Copyright";
+"Cmu-CQ-3V9.title" = "版权";
 
 /* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
-"F0z-JX-Cv5.title" = "Window";
+"F0z-JX-Cv5.title" = "关于 Shuttle";
 
 /* Class = "NSTextFieldCell"; title = "Program Name and Tag Line"; ObjectID = "tb3-eK-HAT"; */
-"tb3-eK-HAT.title" = "Program Name and Tag Line";
+"tb3-eK-HAT.title" = "程序名称和标语";
 
 /* Class = "NSButtonCell"; title = "官方网站"; ObjectID = "uUM-88-32s"; */
 "uUM-88-32s.title" = "官方网站";

@@ -1,0 +1,3 @@
+/* Localized versions of Info.plist keys */
+
+"NSAppleEventsUsageDescription" = "Shuttle требуется разрешение «Автоматизация» в разделе «Конфиденциальность и безопасность», чтобы запускать AppleScript.";

@@ -1,0 +1,3 @@
+/* Localized versions of Info.plist keys */
+
+"NSAppleEventsUsageDescription" = "Shuttle 需要在“安全性与隐私”中获得“自动化”权限，才能运行 AppleScript。";

@@ -30,13 +30,13 @@
 "648.title" = "编辑";
 
 /* Class = "NSMenuItem"; title = "Quit"; ObjectID = "649"; */
-"649.title" = "Quit";
+"649.title" = "退出";
 
 /* Class = "NSMenuItem"; title = "导出"; ObjectID = "651"; */
 "651.title" = "导出";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "652"; */
-"652.title" = "Edit";
+"652.title" = "编辑";
 
 /* Class = "NSMenuItem"; title = "导入"; ObjectID = "653"; */
 "653.title" = "导入";

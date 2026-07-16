@@ -50,6 +50,8 @@
 		8F15DF1B30097F050084BA15 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AboutWindowController.strings; sourceTree = "<group>"; };
 		8F15DF1C30097F050084BA15 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F8A355F300985640081D229 /* shuttle.default.ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shuttle.default.ru.json; sourceTree = "<group>"; };
+		8F8A3567300990A40081D229 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8F8A3568300990A60081D229 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A124BA161D45572B00218F2F /* iTerm2-stable-current-window.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTerm2-stable-current-window.scpt"; sourceTree = "<group>"; };
 		A124BA171D45572B00218F2F /* iTerm2-stable-new-tab-default.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTerm2-stable-new-tab-default.scpt"; sourceTree = "<group>"; };
 		A124BA181D45572B00218F2F /* iTerm2-stable-new-window.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTerm2-stable-new-window.scpt"; sourceTree = "<group>"; };
@@ -346,6 +348,8 @@
 				C149EC0715D5214600B1F558 /* en */,
 				A1B7B9E41DB5436700809327 /* es */,
 				BDCFF1541E4E890A00B365C9 /* fr */,
+				8F8A3567300990A40081D229 /* ru */,
+				8F8A3568300990A60081D229 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -477,6 +481,8 @@
 		C149EC1815D5214600B1F558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = shuttle.icns;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Shuttle/Shuttle.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -487,6 +493,7 @@
 				INFOPLIST_FILE = "Shuttle/Shuttle-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.4.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -501,6 +508,8 @@
 		C149EC1915D5214600B1F558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = shuttle.icns;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Shuttle/Shuttle.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -511,6 +520,7 @@
 				INFOPLIST_FILE = "Shuttle/Shuttle-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.4.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
