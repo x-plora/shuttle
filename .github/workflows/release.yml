@@ -47,12 +47,21 @@ jobs:
         run: |
           set -euo pipefail
 
-          ditto -c -k --keepParent "$PRODUCT_PATH" "$ARTIFACT_NAME"
+          ditto -c -k --sequesterRsrc --keepParent "$PRODUCT_PATH" "$ARTIFACT_NAME"
+
+      - name: Verify packaged app
+        run: |
+          set -euo pipefail
+
+          VERIFY_DIR="$(mktemp -d)"
+          ditto -x -k "$ARTIFACT_NAME" "$VERIFY_DIR"
+          test -d "$VERIFY_DIR/Shuttle.app"
+          test -x "$VERIFY_DIR/Shuttle.app/Contents/MacOS/Shuttle"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v6
         with:
-          name: Shuttle
+          name: Shuttle-package
           path: ${{ env.ARTIFACT_NAME }}
           if-no-files-found: error
 
