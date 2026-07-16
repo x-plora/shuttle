@@ -1,0 +1,26 @@
+/*
+ Translations by Kirill X-plora Chugreev
+ */
+
+/*
+  Localizable.strings
+  Shuttle
+*/
+
+"About " = "О программе ";
+"Version: " = "Версия: ";
+" - A simple SSH shortcut menu." = " — простое меню SSH-ярлыков.";
+
+"Error parsing config" = "Ошибка разбора конфигурации";
+
+"Quit" = "Завершить";
+"Continue" = "Продолжить";
+
+"is not a valid value for inTerminal. Please fix this in the JSON file" = "не является допустимым значением для inTerminal. Исправьте это в JSON-файле";
+"bad \"inTerminal\":\"VALUE\" in the JSON settings" = "неверное значение \"inTerminal\":\"VALUE\" в настройках JSON";
+
+"\"iTerm_version\": \"VALUE\", is missing.\n\n\"VALUE\" can be:\n\"stable\" targeting new versions.\n\"nightly\" targeting nightly builds.\n\nPlease fix your shuttle JSON settings.\nSee readme.md on shuttle's github for help." = "\"iTerm_version\": \"VALUE\" отсутствует.\n\n\"VALUE\" может быть:\n\"stable\" для новых версий.\n\"nightly\" для ночных сборок.\n\nИсправьте настройки Shuttle в JSON.\nСправку см. в readme.md на GitHub Shuttle.";
+"Press Continue to try iTerm stable applescripts.\n              -->(not recommended)<--\nThis could fail if you have another version of iTerm installed.\n\nPlease fix the JSON settings.\nPress Quit to exit shuttle." = "Нажмите «Продолжить», чтобы попробовать AppleScript для стабильной версии iTerm.\n              -->(не рекомендуется)<--\nЭто может не сработать, если у вас установлена другая версия iTerm.\n\nИсправьте настройки JSON.\nНажмите «Завершить», чтобы выйти из Shuttle.";
+
+"is not a valid value for iTerm_version. Please fix this in the JSON file" = "не является допустимым значением для iTerm_version. Исправьте это в JSON-файле";
+"bad \"iTerm_version\": \"VALUE\" in the JSON settings" = "неверное значение \"iTerm_version\": \"VALUE\" в настройках JSON";

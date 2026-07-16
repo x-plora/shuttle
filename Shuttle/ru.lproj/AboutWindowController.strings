@@ -1,0 +1,18 @@
+/*
+ Translations by Kirill X-plora Chugreev
+ */
+
+/* Class = "NSTextFieldCell"; title = "Version"; ObjectID = "6fl-Xm-UPS"; */
+"6fl-Xm-UPS.title" = "Версия";
+
+/* Class = "NSTextFieldCell"; title = "Copyright"; ObjectID = "Cmu-CQ-3V9"; */
+"Cmu-CQ-3V9.title" = "Авторские права";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "О программе";
+
+/* Class = "NSTextFieldCell"; title = "Program Name and Tag Line"; ObjectID = "tb3-eK-HAT"; */
+"tb3-eK-HAT.title" = "Название программы и слоган";
+
+/* Class = "NSButtonCell"; title = "Homepage"; ObjectID = "uUM-88-32s"; */
+"uUM-88-32s.title" = "Домашняя страница";
