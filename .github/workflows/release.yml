@@ -21,6 +21,7 @@ jobs:
       BUILD_DIR: build/Release
       PRODUCT_PATH: build/Release/Shuttle.app
       ARTIFACT_DIR: build/Artifact
+      DMG_NAME: Shuttle.dmg
 
     steps:
       - name: Checkout
@@ -55,14 +56,21 @@ jobs:
           set -euo pipefail
 
           rm -rf "$ARTIFACT_DIR"
-          mkdir -p "$ARTIFACT_DIR"
-          cp -R "$PRODUCT_PATH" "$ARTIFACT_DIR/Shuttle.app"
+          mkdir -p "$ARTIFACT_DIR/staging"
+          cp -R "$PRODUCT_PATH" "$ARTIFACT_DIR/staging/Shuttle.app"
+          hdiutil create \
+            -volname Shuttle \
+            -srcfolder "$ARTIFACT_DIR/staging" \
+            -ov \
+            -format UDZO \
+            "$ARTIFACT_DIR/$DMG_NAME"
+          hdiutil verify "$ARTIFACT_DIR/$DMG_NAME"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v6
         with:
           name: Shuttle
-          path: ${{ env.ARTIFACT_DIR }}
+          path: ${{ env.ARTIFACT_DIR }}/${{ env.DMG_NAME }}
           if-no-files-found: error
 
       - name: Create GitHub prerelease
@@ -77,3 +85,5 @@ jobs:
 
           gh release view "$RELEASE_TAG" >/dev/null 2>&1 || \
             gh release create "$RELEASE_TAG" --title "$RELEASE_TITLE" --notes "" --prerelease
+
+          gh release upload "$RELEASE_TAG" "$ARTIFACT_DIR/$DMG_NAME" --clobber
