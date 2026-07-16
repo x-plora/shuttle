@@ -47,16 +47,21 @@ jobs:
         run: |
           set -euo pipefail
 
+          rm -f "$ARTIFACT_NAME"
           ditto -c -k --sequesterRsrc --keepParent "$PRODUCT_PATH" "$ARTIFACT_NAME"
 
       - name: Verify packaged app
         run: |
           set -euo pipefail
 
-          VERIFY_DIR="$(mktemp -d)"
-          ditto -x -k "$ARTIFACT_NAME" "$VERIFY_DIR"
-          test -d "$VERIFY_DIR/Shuttle.app"
-          test -x "$VERIFY_DIR/Shuttle.app/Contents/MacOS/Shuttle"
+          file "$ARTIFACT_NAME"
+          unzip -t "$ARTIFACT_NAME"
+          unzip -l "$ARTIFACT_NAME" | sed -n '1,40p'
+
+          ZIP_VERIFY_DIR="$(mktemp -d)"
+          ditto -x -k "$ARTIFACT_NAME" "$ZIP_VERIFY_DIR"
+          test -d "$ZIP_VERIFY_DIR/Shuttle.app"
+          test -x "$ZIP_VERIFY_DIR/Shuttle.app/Contents/MacOS/Shuttle"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v6
