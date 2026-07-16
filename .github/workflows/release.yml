@@ -20,7 +20,6 @@ jobs:
       CONFIGURATION: Release
       BUILD_DIR: build/Release
       PRODUCT_PATH: build/Release/Shuttle.app
-      ARTIFACT_NAME: Shuttle-${{ github.ref_type == 'tag' && github.ref_name || format('run-{0}', github.run_number) }}.zip
 
     steps:
       - name: Checkout
@@ -43,30 +42,21 @@ jobs:
             DEVELOPMENT_TEAM= \
             build
 
-      - name: Package app
+      - name: Verify built app
         run: |
           set -euo pipefail
 
-          rm -f "$ARTIFACT_NAME"
-          (
-            cd "$BUILD_DIR"
-            /usr/bin/zip -r -y "$GITHUB_WORKSPACE/$ARTIFACT_NAME" Shuttle.app
-          )
+          test -d "$PRODUCT_PATH"
+          test -x "$PRODUCT_PATH/Contents/MacOS/Shuttle"
 
-      - name: Verify packaged app
-        run: |
-          set -euo pipefail
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: Shuttle
+          path: ${{ env.PRODUCT_PATH }}
+          if-no-files-found: error
 
-          file "$ARTIFACT_NAME"
-          unzip -t "$ARTIFACT_NAME"
-          unzip -l "$ARTIFACT_NAME" | sed -n '1,40p'
-
-          VERIFY_DIR="$(mktemp -d)"
-          unzip -q "$ARTIFACT_NAME" -d "$VERIFY_DIR"
-          test -d "$VERIFY_DIR/Shuttle.app"
-          test -x "$VERIFY_DIR/Shuttle.app/Contents/MacOS/Shuttle"
-
-      - name: Publish GitHub release asset
+      - name: Create GitHub prerelease
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ github.token }}
@@ -78,5 +68,3 @@ jobs:
 
           gh release view "$RELEASE_TAG" >/dev/null 2>&1 || \
             gh release create "$RELEASE_TAG" --title "$RELEASE_TITLE" --notes "" --prerelease
-
-          gh release upload "$RELEASE_TAG" "$ARTIFACT_NAME" --clobber
