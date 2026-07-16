@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: Shuttle
-          path: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.PRODUCT_PATH }}
           if-no-files-found: error
 
       - name: Publish GitHub release asset
