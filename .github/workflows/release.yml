@@ -20,6 +20,7 @@ jobs:
       CONFIGURATION: Release
       BUILD_DIR: build/Release
       PRODUCT_PATH: build/Release/Shuttle.app
+      ARTIFACT_DIR: build/Artifact
 
     steps:
       - name: Checkout
@@ -49,11 +50,19 @@ jobs:
           test -d "$PRODUCT_PATH"
           test -x "$PRODUCT_PATH/Contents/MacOS/Shuttle"
 
+      - name: Prepare artifact
+        run: |
+          set -euo pipefail
+
+          rm -rf "$ARTIFACT_DIR"
+          mkdir -p "$ARTIFACT_DIR"
+          cp -R "$PRODUCT_PATH" "$ARTIFACT_DIR/Shuttle.app"
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v6
         with:
           name: Shuttle
-          path: ${{ env.PRODUCT_PATH }}
+          path: ${{ env.ARTIFACT_DIR }}
           if-no-files-found: error
 
       - name: Create GitHub prerelease
