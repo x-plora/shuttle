@@ -30,7 +30,13 @@
         
         // if the config file does not exist, create a default one
         if ( ![[NSFileManager defaultManager] fileExistsAtPath:shuttleConfigFile] ) {
-            NSString *cgFileInResource = [[NSBundle mainBundle] pathForResource:@"shuttle.default" ofType:@"json"];
+            NSArray *preferredLocalizations = [[NSBundle mainBundle] preferredLocalizations];
+            NSString *preferredLocalization = [preferredLocalizations count] > 0 ? [preferredLocalizations objectAtIndex:0] : nil;
+            NSString *localizedDefaultConfig = preferredLocalization ? [NSString stringWithFormat:@"shuttle.default.%@", preferredLocalization] : nil;
+            NSString *cgFileInResource = localizedDefaultConfig ? [[NSBundle mainBundle] pathForResource:localizedDefaultConfig ofType:@"json"] : nil;
+            if (!cgFileInResource) {
+                cgFileInResource = [[NSBundle mainBundle] pathForResource:@"shuttle.default" ofType:@"json"];
+            }
             [[NSFileManager defaultManager] copyItemAtPath:cgFileInResource toPath:shuttleConfigFile error:nil];
         }
     }
@@ -541,7 +547,7 @@
     
     //script expects the following order: Command, Theme, Title unless its virtual which bypasses the url check and expects Command, Title
     NSArray *passParameters;
-    NSURL *url;
+    NSURL *url = nil;
     if ( ![terminalWindow isEqualToString:@"virtual"] ) {
         passParameters = @[escapedObject, terminalTheme, terminalTitle];
         url = [NSURL URLWithString:escapedObject];
@@ -549,12 +555,10 @@
     else {
         passParameters = @[escapedObject, terminalTitle];
     }
-    // Check if Url
-    if (url)
-        {
-            [[NSWorkspace sharedWorkspace] openURL:url];
-            
-        }
+    // Only commands with an explicit URL scheme should bypass the terminal scripts.
+    if ([url scheme]) {
+        [[NSWorkspace sharedWorkspace] openURL:url];
+    }
     //If the JSON file is set to use iTerm
     else if ( [terminalPref rangeOfString: @"iterm"].location !=NSNotFound ) {
         
