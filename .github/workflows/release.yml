@@ -71,6 +71,7 @@ jobs:
         with:
           name: Shuttle
           path: ${{ env.PRODUCT_PATH }}
+          compression-level: 0
           if-no-files-found: error
 
       - name: Publish GitHub release asset
