@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -50,7 +50,7 @@ jobs:
           ditto -c -k --keepParent "$PRODUCT_PATH" "$ARTIFACT_NAME"
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: Shuttle
           path: ${{ env.ARTIFACT_NAME }}
